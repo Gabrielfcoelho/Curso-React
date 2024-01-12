@@ -9,6 +9,10 @@ const [userEmail, setUserEmail] = useState()
         setUserEmail(email)
         console.log(userEmail)
     }
+
+    function limparEmail() {
+        setUserEmail('')
+    }
     return(
         <div>
             <h2>Cadastre o seu e-mail:</h2>
@@ -16,7 +20,12 @@ const [userEmail, setUserEmail] = useState()
                 <input type="email" name="gmail" id="gmail" placeholder="Digite o seu e-mail..." onChange={(e) => setEmail(e.target.value)}/>
             </form>
             <button onClick={enviarEmail}>Enviar e-mail</button>
-            {userEmail}
+            {userEmail && (
+                <div>
+                    <p>O e-mail do usuario é: {userEmail} </p>
+                    <button onClick={limparEmail}>Limpar email</button>
+                </div>
+            )}
         </div>
     )
 }
