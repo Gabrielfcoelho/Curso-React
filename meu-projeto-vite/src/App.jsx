@@ -1,17 +1,17 @@
 import './App.css'
-import { useState } from 'react'
-import SeuNome from './components/SeuNome'
-import Saudacao from './components/Saudacao'
+import NavBar from './components/NavBar'
+
+// 2 - reaproveitamento de estrutura
+import { Outlet } from 'react-router-dom'
 
 function App() {
   
-  const [nome, setNome] = useState()
-
   return (
     <>
-      <h1>State Lift</h1>
-      <SeuNome setNome={setNome} />
-      <Saudacao nome={nome} />
+      <NavBar />
+      <h1>React Router</h1>
+      <Outlet />
+      <p>Footer</p>
     </>
   )
 }
